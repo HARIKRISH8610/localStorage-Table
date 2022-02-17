@@ -1,0 +1,12 @@
+#rowDisapper{
+    display: none;
+}
+#rowDisapper.active{
+display: table-row;
+}
+.tb{
+    display: flex;
+}
+.tb{
+    display: block;
+}

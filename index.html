@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Courgette&family=Great+Vibes&family=Josefin+Sans:ital@1&family=Redressed&display=swap" rel="stylesheet">
+  <link href="./index.css" type="text/css" rel="stylesheet" />
+  <link href="./bootstrap.min.css" type="text/css" rel="stylesheet" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+  <title>Table</title>
+  <script src="./bootstrap.bundle.js"></script>
+</head>
+
+<body>
+  <nav class="navbar animate__animated animate__fadeIn navbar-dark navbar-expand-lg justify-content-center bg-dark">
+    <h4 style="color: white; text-align: center; font-family: 'Redressed', cursive;">Form validation and insert table using HTML, CSS, Bootstrap and Javascript.</h4>
+  </nav>
+  <div class="container-fluid">
+    <div class="row animate__animated animate__fadeIn" style="font-family: 'Josefin Sans', sans-serif;">
+      <div class="p-2">
+        <b>Please fill this form:</b>
+        <form>
+        <table class="table table-bordered table-striped table-secondary">
+          <tr>
+            <td>
+              <label for="idName" aria-describedby="reqName">Enter your name:
+              </label>
+              <div id="reqName" style="font-size: x-small">
+                <font><span style="color: red">*</span> This is required</font>
+              </div>
+            </td>
+            <td>
+              <input type="text" for="inValue" id="idName" class="form-control" required />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="idEmail" aria-describedby="reqEmail">Enter your email:</label>
+              <div id="reqEmail" style="font-size: x-small">
+                <font><span style="color: red">*</span> This is required</font>
+              </div>
+            </td>
+            <td><input type="email" id="idEmail" class="form-control" /></td>
+          </tr>
+          <tr>
+            <td><label for="idDate"> Date Of Birth(DOB):</label>
+              <div id="reqPassword" style="font-size: x-small">
+                <font><span style="color: red">*</span> This is required</font>
+              </div>
+            </td>
+            <td><input type="date" class="form-control" min="1979-01-01" max="2000-12-31" id="idDate" value="" placeholder="onclick on calender" onkeypress="return false"/></td>
+          </tr>
+          <tr>
+            <td>
+              <label for="idPassword" aria-describedby="reqPassword">
+                Enter your new password:</label>
+              <div id="reqPassword" style="font-size: x-small">
+                <font><span style="color: red">*</span> This is required</font>
+              </div>
+            </td>
+            <td>
+              <input type="password" id="idPassword" class="form-control" />
+            </td>
+          </tr>
+          <tr>
+            <td><label for="idRange"> Rate this page:</label></td>
+            <td>
+              <input type="range" id="idRange" min="0" max="10" value="0" />
+            </td>
+          </tr>
+          <tr>
+            <td><label for="idFile">Add your resume:</label></td>
+            <td><input type="file" id="idFile"></td>
+          </tr>
+          <tr>
+            <td><label for="idRadio">Martial status:</label></td>
+            <td id="idRadio">
+              <input type="radio" name="Martial" id="idMarried" value="Married">
+              <label for="idMarried">Married</label><br>
+              <input type="radio" name="Martial" id="idUnmarried" value="Unmarried">
+              <label for="idUnmarried">Unmarried</label>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2" class="text-center">
+              <input value="submit" id="btnSave" type="submit" onclick="btnSubmit()" class="btn btn-primary" data-bs-toggle="tooltip"
+                data-bs-placement="top" title="click to Submit">
+            </input>
+              <input id="btnReset" type="reset" onclick="btnReset()" class="btn btn-secondary" data-bs-toggle="tooltip"
+                data-bs-placement="bottom" title="click to Reset">
+              </input>
+            </td>
+          </tr>
+        </table>
+      </form>
+        <div class="d-flex spinners animate__animated animate__fadeIn align-items-center" style="display: none !important; font-family: 'Great Vibes', cursive;">
+          <div class="spinner-border ml-auto" role="status" aria-hidden="true"></div>
+          <strong style="font-family: 'Great Vibes', cursive;">Loading...Please wait your data will upload.</strong>
+        </div>
+        <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+          <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
+            <path
+              d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+          </symbol>
+          <symbol id="info-fill" fill="currentColor" viewBox="0 0 16 16">
+            <path
+              d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z" />
+          </symbol>
+          <symbol id="exclamation-triangle-fill" fill="currentColor" viewBox="0 0 16 16">
+            <path
+              d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+          </symbol>
+        </svg>
+        <div class="alert animate__animated animate__fadeIn alert-success d-flex align-items-center" role="alert" style="display: none !important;">
+          <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:">
+            <use xlink:href="#check-circle-fill" /></svg>
+          <div style="font-family: 'Great Vibes', cursive;">
+            Your data uploaded successfuly.
+          </div>
+        </div>
+        <div class="alert animate__animated animate__fadeIn alert-warning d-flex align-items-center" role="alert" style="display: none !important;">
+          <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Warning:">
+            <use xlink:href="#exclamation-triangle-fill" /></svg>
+          <div style="font-family: 'Great Vibes', cursive;">
+            Fill the required fields
+          </div>
+        </div>
+      </div>
+      <div class=" p-2">
+        <table class=" table tb2 table-dark table-striped" >
+          <thead>
+            <tr style="font-family: 'Josefin Sans', sans-serif;">
+              <th>S.No</th>
+              <th><label for="yourName">Name</label></th>
+              <th><label for="yourEmail">Email</label></th>
+              <th><label for="yourDob">DOB(yyyy/mm/dd)</label></th>
+              <th>Modify</th>
+            </tr>
+          </thead>
+          <tbody class="inLocalTable animate__animated animate__fadeIn" style="font-family: 'Courgette', cursive;">
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="./index.js"></script>
+  <script src="./bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
